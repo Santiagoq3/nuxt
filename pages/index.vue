@@ -1,6 +1,6 @@
 <script setup>
   import { ref } from "vue";
-  const { data } = await useFetch('https://restcountries.com/v3.1/name/peru')
+  const { data } = await useFetch('https://restcountries.com/v3.1/all')
   const countries = ref(data.value)
   console.log(countries)
 </script>
@@ -19,11 +19,15 @@
           <option value="oceania">Oceania</option>
         </select>
       </section>
-      <section class="mt-6">
-        <ul>
-          <li v-for="(country, i) in countries" :key="i">
-            <img :src="country.flags.svg" />
-            <p>{{country.name.common}}</p>
+      <section class="mt-6 w-full">
+        <ul class="w-full flex items-center justify-center flex-wrap gap-8">
+          <li class="border border-black w-[300px]" v-for="(country, i) in countries" :key="i">
+            <img class="w-full" :src="country.flags.svg" />
+            <div>
+              <h2>{{country.name.common}}</h2>
+              <p>Population: {{country.population}}</p>
+              <p>Region: {{country.region}}</p>
+            </div>
           </li>
         </ul>
       </section>
