@@ -7,8 +7,8 @@
 
 
 <template>
-  <main class=" w-full h-screen flex justify-center">
-    <div class="border border-t-VeryDarkBlueBG w-[90%] p-4">
+  <main class=" w-full flex justify-center bg-[#F2F2F2]">
+    <div class=" w-[100%] p-4">
       <section class="flex items-center justify-between">
         <input type="text" placeholder="Search for a country..." />
         <select >
@@ -20,13 +20,14 @@
         </select>
       </section>
       <section class="mt-6 w-full">
-        <ul class="w-full flex items-center justify-center flex-wrap gap-8">
-          <li class="border border-black w-[300px]" v-for="(country, i) in countries" :key="i">
-            <img class="w-full" :src="country.flags.svg" />
-            <div>
-              <h2>{{country.name.common}}</h2>
-              <p>Population: {{country.population}}</p>
-              <p>Region: {{country.region}}</p>
+        
+        <ul class="w-full flex items-center justify-evenly flex-wrap gap-8">
+          <li class="  h-[340px] " v-for="(country, i) in countries" :key="i">
+            <img class="w-full h-[170px]" :src="country.flags.svg" />
+            <div class="p-5 bg-[#fff]">
+              <h2 class="mb-3 font-bold">{{country.name.common}}</h2>
+              <p><span class="font-semibold">Population:</span> {{country.population}}</p>
+              <p><span class="font-semibold">Region:</span> {{country.region}}</p>
             </div>
           </li>
         </ul>
